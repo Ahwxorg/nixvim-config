@@ -1,11 +1,10 @@
 {self, ...}: {
+  globalOptions = {
+    number = true;
+    relativenumber = true;
 
-  # options = {
-  #   number = true;
-  #   relativenumber = true;
-
-  #   shiftwidth = 2;
-  # };
+    shiftwidth = 2;
+  };
 
   globals.mapleader = " ";
 
