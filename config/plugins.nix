@@ -486,5 +486,26 @@
       vim-be-good
       headlines-nvim
       nvim-web-devicons
+    ]
+    ++ [
+      (pkgs.vimUtils.buildVimPlugin {
+        pname = "accelerated-jk";
+        src = pkgs.fetchFromGitHub {
+          owner = "rainbowhxch";
+          repo = "accelerated-jk.nvim";
+          rev = "8fb5dad4ccc1811766cebf16b544038aeeb7806f";
+          sha256 = "";
+        };
+      })
+      # Just copy this block for a new plugin
+      # (pkgs.vimUtils.buildVimPlugin {
+      #   pname = "";
+      #   src = pkgs.fetchFromGitHub {
+      #     owner = "";
+      #     repo = "";
+      #     rev = "";
+      #     sha256 = "";
+      #   };
+      # })
     ];
 }
