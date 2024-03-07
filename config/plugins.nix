@@ -424,7 +424,7 @@
         Event = "",
         Operator = "",
         TypeParameter = "",
-      } 
+      }
 
     local cmp = require'cmp'
 
@@ -475,6 +475,7 @@
   #   	return notify(message, level, merged_opts)
   #   end
   # '';
+
   # extraPlugins = with pkgs.vimPlugins; [
   #   vim-be-good
   #   headlines-nvim
@@ -497,6 +498,7 @@
           rev = "8fb5dad4ccc1811766cebf16b544038aeeb7806f";
           sha256 = "";
         };
+        version = "2023-03-01";
       })
       # Just copy this block for a new plugin
       # (pkgs.vimUtils.buildVimPlugin {
