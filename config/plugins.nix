@@ -453,7 +453,6 @@
               }),
           })  '';
 
-    
   # extraConfigLua = ''
   #   local notify = require("notify")
   #   local filtered_message = { "No information available" }
@@ -476,8 +475,16 @@
   #   	return notify(message, level, merged_opts)
   #   end
   # '';
-  extraPlugins = with pkgs.vimPlugins; [
-    vim-be-good
-    # accelerated-jk
-  ];
+  # extraPlugins = with pkgs.vimPlugins; [
+  #   vim-be-good
+  #   headlines-nvim
+  #   # accelerated-jk
+  # ];
+
+  extraPlugins = with pkgs.vimPlugins;
+    [
+      vim-be-good
+      headlines-nvim
+      nvim-web-devicons
+    ];
 }
