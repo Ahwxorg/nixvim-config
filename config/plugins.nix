@@ -490,16 +490,16 @@
       friendly-snippets # Should load this in at LuaSnip's initialisation, no clue how tho yet...
     ]
     ++ [
-      (pkgs.vimUtils.buildVimPlugin {
-        pname = "accelerated-jk";
-        src = pkgs.fetchFromGitHub {
-          owner = "rainbowhxch";
-          repo = "accelerated-jk.nvim";
-          rev = "8fb5dad4ccc1811766cebf16b544038aeeb7806f";
-          sha256 = "";
-        };
-        version = "2023-03-01";
-      })
+      # (pkgs.vimUtils.buildVimPlugin {
+      #   pname = "accelerated-jk";
+      #   src = pkgs.fetchFromGitHub {
+      #     owner = "rainbowhxch";
+      #     repo = "accelerated-jk.nvim";
+      #     rev = "8fb5dad4ccc1811766cebf16b544038aeeb7806f";
+      #     sha256 = "";
+      #   };
+      #   version = "2023-03-01";
+      # })
       # Just copy this block for a new plugin
       # (pkgs.vimUtils.buildVimPlugin {
       #   pname = "";
