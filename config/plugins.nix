@@ -488,6 +488,7 @@
       headlines-nvim # Should load this in at the opening of filetypes that require this, namely Markdown.
       nvim-web-devicons # Should load this in at Telescope/Neotree actions.
       friendly-snippets # Should load this in at LuaSnip's initialisation, no clue how tho yet...
+      glow-nvim # Glow inside of Neovim
     ]
     ++ [
       # (pkgs.vimUtils.buildVimPlugin {
