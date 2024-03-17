@@ -190,7 +190,7 @@
     # Markdown preview server
     markdown-preview = {
       enable = true;
-      theme = "dark";
+      settings.theme = "dark";
     };
 
     # Prettier fancier command window
