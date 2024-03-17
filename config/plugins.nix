@@ -344,6 +344,7 @@
       iconsEnabled = true;
     };
 
+    cmp.enable = true;
     cmp-nvim-lsp = {
       enable = true; # Enable suggestions for LSP
     };
