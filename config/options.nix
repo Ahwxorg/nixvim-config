@@ -19,7 +19,7 @@
     smarttab = true;
 
     # System clipboard support, needs xclip/wl-clipboard
-    #clipboard = "unnamedplus";
+    clipboard = "unnamedplus";
 
     # Highlight the current line
     cursorline = true;
