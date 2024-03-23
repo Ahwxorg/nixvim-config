@@ -4,6 +4,7 @@
     relativenumber = true;
 
     shiftwidth = 2;
+    scrolloff = 5;
   };
 
   globals.mapleader = " ";
