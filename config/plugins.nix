@@ -158,9 +158,9 @@
     };
 
     # Easily toggle comments
-    comment-nvim = {
+    comment = {
       enable = true;
-      sticky = true;
+      settings.sticky = true;
     };
 
     # Terminal inside Neovim
@@ -175,7 +175,7 @@
     # Git signs in code
     gitsigns = {
       enable = true;
-      currentLineBlame = true;
+      settings.current_line_blame = true;
     };
 
     which-key = {

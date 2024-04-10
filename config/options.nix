@@ -1,5 +1,5 @@
 {self, ...}: {
-  globalOptions = {
+  globalOpts = {
     # Line numbers
     number = true;
     relativenumber = true;
