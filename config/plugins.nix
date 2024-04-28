@@ -456,6 +456,7 @@
       friendly-snippets # Should load this in at LuaSnip's initialisation, no clue how tho yet...
       glow-nvim # Glow inside of Neovim
       ultisnips
+      clipboard-image-nvim
     ]
     ++ [
       # (pkgs.vimUtils.buildVimPlugin {
