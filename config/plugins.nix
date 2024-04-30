@@ -166,10 +166,12 @@
     # Terminal inside Neovim
     toggleterm = {
       enable = true;
-      autochdir = true;
-      closeOnExit = true;
-      direction = "vertical";
-      hideNumbers = true;
+      settings = {
+        hide_numbers = false;
+        autochdir = true;
+        close_on_exit = true;
+        direction = "vertical";
+      };
     };
 
     # Git signs in code
@@ -329,34 +331,36 @@
 
   colorschemes.catppuccin = {
     enable = true;
-    disableBold = false;
-    disableItalic = false;
-    disableUnderline = false;
-    transparentBackground = false;
-    integrations = {
-      cmp = true;
-      noice = true;
-      notify = true;
-      neotree = true;
-      harpoon = true;
-      gitsigns = true;
-      which_key = true;
-      illuminate.enabled = true;
-      treesitter = true;
-      treesitter_context = true;
-      telescope.enabled = true;
-      indent_blankline.enabled = true;
-      mini.enabled = true;
-      native_lsp = {
-        enabled = true;
-        inlay_hints = {
-          background = true;
-        };
-        underlines = {
-          errors = ["underline"];
-          hints = ["underline"];
-          information = ["underline"];
-          warnings = ["underline"];
+    settings = {
+      no_bold = false;
+      no_italic = false;
+      no_underline = false;
+      transparent_background = false;
+      integrations = {
+        cmp = true;
+        noice = true;
+        notify = true;
+        neotree = true;
+        harpoon = true;
+        gitsigns = true;
+        which_key = true;
+        illuminate.enabled = true;
+        treesitter = true;
+        treesitter_context = true;
+        telescope.enabled = true;
+        indent_blankline.enabled = true;
+        mini.enabled = true;
+        native_lsp = {
+          enabled = true;
+          inlay_hints = {
+            background = true;
+          };
+          underlines = {
+            errors = ["underline"];
+            hints = ["underline"];
+            information = ["underline"];
+            warnings = ["underline"];
+          };
         };
       };
     };
