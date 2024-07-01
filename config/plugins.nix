@@ -158,10 +158,7 @@
     };
 
     # Easily toggle comments
-    # comment = {
-    #   enable = true;
-    #   # settings.sticky = true;
-    # };
+    commentary.enable = true;
 
     # Terminal inside Neovim
     toggleterm = {
@@ -639,7 +636,6 @@
       glow-nvim # Glow inside of Neovim
       ultisnips
       clipboard-image-nvim
-      comment-nvim
     ]
     ++ [
       # (pkgs.vimUtils.buildVimPlugin {
