@@ -6,6 +6,12 @@
       key = "<leader>e";
     }
 
+    # Commentary bindings
+    {
+      action = "<cmd>Commentary<CR>";
+      key = "<leader>/";
+    }
+
     # Telescope bindings
 
     {
