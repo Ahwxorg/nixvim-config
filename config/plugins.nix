@@ -32,8 +32,10 @@
 
     none-ls = {
       enable = true;
-      cmd = ["bash -c nvim"];
-      debug = true;
+      settings = {
+        cmd = ["bash -c nvim"];
+        debug = true;
+      };
       sources = {
         code_actions = {
           statix.enable = true;
@@ -81,6 +83,9 @@
       timeout = 500;
       topDown = true;
     };
+
+    # Persistence
+    persistence.enable = true;
 
     # Debugger
     dap = {
@@ -271,7 +276,7 @@
         marksman.enable = true;
 
         # Nix
-        nil_ls.enable = true;
+        nil-ls.enable = true;
 
         # Docker
         dockerls.enable = true;
