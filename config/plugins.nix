@@ -59,7 +59,7 @@
           };
           black = {
             enable = true;
-            withArgs = ''
+            settings = ''
               {
                 extra_args = { "--fast" },
               }
