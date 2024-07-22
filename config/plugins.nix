@@ -250,6 +250,14 @@
       };
     };
 
+    undotree = {
+      enable = true;
+      settings = {
+        autoOpenDiff = true;
+        focusOnToggle = true;
+      };
+    };
+
     # Nix expressions in Neovim
     nix = {
       enable = true;
