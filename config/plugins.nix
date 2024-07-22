@@ -74,6 +74,11 @@
       };
     };
 
+    # Lazygit
+    lazygit = {
+      enable = true;
+    };
+
     # Notify
     notify = {
       enable = true;
@@ -407,66 +412,68 @@
     };
   };
   extraConfigLua = ''
-          luasnip = require("luasnip")
-          kind_icons = {
-            Text = "󰊄",
-            Method = "",
-            Function = "󰡱",
-            Constructor = "",
-            Field = "",
-            Variable = "󱀍",
-            Class = "",
-            Interface = "",
-            Module = "󰕳",
-            Property = "",
-            Unit = "",
-            Value = "",
-            Enum = "",
-            Keyword = "",
-            Snippet = "",
-            Color = "",
-            File = "",
-            Reference = "",
-            Folder = "",
-            EnumMember = "",
-            Constant = "",
-            Struct = "",
-            Event = "",
-            Operator = "",
-            TypeParameter = "",
-          } 
+    require("telescope").load_extension("lazygit")
 
-           local cmp = require'cmp'
+    luasnip = require("luasnip")
+    kind_icons = {
+      Text = "󰊄",
+      Method = "",
+      Function = "󰡱",
+      Constructor = "",
+      Field = "",
+      Variable = "󱀍",
+      Class = "",
+      Interface = "",
+      Module = "󰕳",
+      Property = "",
+      Unit = "",
+      Value = "",
+      Enum = "",
+      Keyword = "",
+      Snippet = "",
+      Color = "",
+      File = "",
+      Reference = "",
+      Folder = "",
+      EnumMember = "",
+      Constant = "",
+      Struct = "",
+      Event = "",
+      Operator = "",
+      TypeParameter = "",
+    } 
 
-       -- Use buffer source for `/` (if you enabled `native_menu`, this won't work anymore).
-       cmp.setup.cmdline({'/', "?" }, {
-         sources = {
-           { name = 'buffer' }
-         }
+    local cmp = require'cmp'
+
+    -- Use buffer source for `/` (if you enabled `native_menu`, this won't work anymore).
+    cmp.setup.cmdline({'/', "?" }, {
+      sources = {
+        { name = 'buffer' }
+      }
+    })
+
+    -- Set configuration for specific filetype.
+     cmp.setup.filetype('gitcommit', {
+       sources = cmp.config.sources({
+         { name = 'cmp_git' }, -- You can specify the `cmp_git` source if you were installed it.
+       }, {
+         { name = 'buffer' },
        })
+     })
 
-      -- Set configuration for specific filetype.
-       cmp.setup.filetype('gitcommit', {
-         sources = cmp.config.sources({
-           { name = 'cmp_git' }, -- You can specify the `cmp_git` source if you were installed it.
-         }, {
-           { name = 'buffer' },
-         })
-       })
-
-       -- Use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore).
-       cmp.setup.cmdline(':', {
-         sources = cmp.config.sources({
-           { name = 'path' }
-         }, {
-           { name = 'cmdline' }
-         }),
-    --      formatting = {
-    --       format = function(_, vim_item)
-    --         vim_item.kind = cmdIcons[vim_item.kind] or "FOO"
-    --       return vim_item
-    --      end
-    -- }
+     -- Use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore).
+     cmp.setup.cmdline(':', {
+       sources = cmp.config.sources({
+         { name = 'path' }
+       }, {
+         { name = 'cmdline' }
+       }),
+  --      formatting = {
+  --       format = function(_, vim_item)
+  --         vim_item.kind = cmdIcons[vim_item.kind] or "FOO"
+  --       return vim_item
+  --      end
+  -- }
        })  '';
 
   colorschemes.catppuccin = {
@@ -505,29 +512,6 @@
       };
     };
   };
-
-  # extraConfigLua = ''
-  #   local notify = require("notify")
-  #   local filtered_message = { "No information available" }
-
-  #   -- Override notify function to filter out messages
-  #   ---@diagnostic disable-next-line: duplicate-set-field
-  #   vim.notify = function(message, level, opts)
-  #   	local merged_opts = vim.tbl_extend("force", {
-  #   		on_open = function(win)
-  #   			local buf = vim.api.nvim_win_get_buf(win)
-  #   			vim.api.nvim_buf_set_option(buf, "filetype", "markdown")
-  #   		end,
-  #   	}, opts or {})
-
-  #   	for _, msg in ipairs(filtered_message) do
-  #   		if message == msg then
-  #   			return
-  #   		end
-  #   	end
-  #   	return notify(message, level, merged_opts)
-  #   end
-  # '';
 
   # extraPlugins = with pkgs.vimPlugins; [
   #   vim-be-good
