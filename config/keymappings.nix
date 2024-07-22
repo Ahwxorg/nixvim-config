@@ -6,12 +6,23 @@
       key = "<leader>e";
     }
 
+    # Undotree
     {
       mode = "n";
       key = "<leader>ut";
       action = "<cmd>UndotreeToggle<CR>";
       options = {
         desc = "Undotree";
+      };
+    }
+
+    # Lazygit
+    {
+      mode = "n";
+      key = "<leader>gg";
+      action = "<cmd>LazyGit<CR>";
+      options = {
+        desc = "LazyGit (root dir)";
       };
     }
 
