@@ -6,6 +6,15 @@
       key = "<leader>e";
     }
 
+    {
+      mode = "n";
+      key = "<leader>ut";
+      action = "<cmd>UndotreeToggle<CR>";
+      options = {
+        desc = "Undotree";
+      };
+    }
+
     # Commentary bindings
     {
       action = "<cmd>Commentary<CR>";
