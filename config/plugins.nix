@@ -258,6 +258,20 @@
       };
     };
 
+    # Highlight word under cursor
+    illuminate = {
+      enable = true;
+      underCursor = false;
+      filetypesDenylist = [
+        "Outline"
+        "TelescopePrompt"
+        "alpha"
+        "harpoon"
+        "reason"
+      ];
+    };
+
+
     # Nix expressions in Neovim
     nix = {
       enable = true;
