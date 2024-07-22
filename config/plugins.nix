@@ -268,30 +268,16 @@
         phpactor.enable = true; # PHP
         svelte.enable = false; # Svelte
         vuels.enable = false; # Vue
+        pyright.enable = true; # Python
+        marksman.enable = true; # Markdown
+        nil-ls.enable = true; # Nix
+        dockerls.enable = true; # Docker
+        bashls.enable = true; # Bash
+        clangd.enable = true; # C/C++
+        csharp-ls.enable = true; # C#
+        yamlls.enable = true; # YAML
 
-        # Python
-        pyright.enable = true;
-
-        # Markdown
-        marksman.enable = true;
-
-        # Nix
-        nil-ls.enable = true;
-
-        # Docker
-        dockerls.enable = true;
-
-        # Bash
-        bashls.enable = true;
-
-        # C/C++
-        clangd.enable = true;
-
-        # C#
-        csharp-ls.enable = true;
-
-        # Lua
-        lua-ls = {
+        lua-ls = { # Lua
           enable = true;
           settings.telemetry.enable = false;
         };
