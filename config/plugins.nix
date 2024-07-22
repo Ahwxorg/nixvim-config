@@ -391,6 +391,12 @@
         ellipsis_char = "...";
       };
     };
+
+    schemastore = {
+      enable = true;
+      yaml.enable = true;
+      json.enable = false;
+    };
   };
   extraConfigLua = ''
           luasnip = require("luasnip")
