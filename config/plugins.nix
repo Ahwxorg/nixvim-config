@@ -15,6 +15,10 @@
       enable = true;
     };
 
+    neoscroll = {
+      enable = true;
+    };
+
     # Includes all parsers for treesitter
     treesitter = {
       enable = true;
