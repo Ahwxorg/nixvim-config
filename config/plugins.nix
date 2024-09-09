@@ -281,12 +281,12 @@
     };
 
     hardtime = {
-      enable = true;
-      enabled = true;
+      enable = false;
+      enabled = false;
       disableMouse = true;
       disabledFiletypes = [ "Oil" ];
       hint = true;
-      maxCount = 4;
+      maxCount = 40;
       maxTime = 1000;
       restrictionMode = "hint";
       restrictedKeys = {
