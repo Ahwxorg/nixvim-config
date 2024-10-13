@@ -47,13 +47,19 @@
 
   globals.mapleader = " ";
 
-  # autoCmd = [
-  #   {
-  #     event = [ "BufEnter" "BufWinEnter" ];
-  #     pattern = [ "*.md" "*.mdx" ];
-  #     command = "MarkdownPreviewToggle";
-  #   }
-  # ];
+  autoCmd = [
+    {
+      event = [ "VimEnter" ];
+      callback = { __raw = "function() if vim.fn.argv(0) == '' then require('telescope.builtin').find_files() end end"; };
+    }
+  ];
+  #autoCmd = [
+  #  {
+  #    event = [ "BufEnter" "BufWinEnter" ];
+  #    pattern = [ "*.md" "*.mdx" ];
+  #    command = "MarkdownPreviewToggle";
+  #  }
+  #];
 
   highlight = {
     Comment.fg = "#ff00ff";
