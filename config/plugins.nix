@@ -1,5 +1,32 @@
 {pkgs, ...}: {
   plugins = {
+    # Navigate Tmux with the same keybindings as Neovim
+    tmux-navigator = {
+      enable = true;
+      keymaps = [
+        {
+          action = "left";
+          key = "<C-w>h";
+        }
+        {
+          action = "down";
+          key = "<C-w>j";
+        }
+        {
+          action = "up";
+          key = "<C-w>k";
+        }
+        {
+          action = "right";
+          key = "<C-w>l";
+        }
+        {
+          action = "previous";
+          key = "<C-w>\\";
+        }
+      ];
+    };
+
     # Buffer bar
     bufferline = {
       enable = true;
@@ -162,13 +189,84 @@
       enable = true;
     };
 
+    # Friendly Snippets 
+    friendly-snippets = {
+      enable = true;
+    };
+
     # Code snippets
     luasnip = {
       enable = true;
-      #extraConfig = {
-      #  enable_autosnippets = true;
-      #  store_selection_keys = "<Tab>";
-      #};
+      extraConfig = {
+        enable_autosnippets = true;
+        store_selection_keys = "<Tab>";
+      };
+      fromSnipmate = [
+        {
+          paths = ./vim-snippets/snippets/markdown.snippets;
+          include = [ "markdown" ];
+        }
+        {
+          paths = ./vim-snippets/snippets/html.snippets;
+          include = [ "html" ];
+        }
+        {
+          paths = ./vim-snippets/snippets/go.snippets;
+          include = [ "go" ];
+        }
+        {
+          paths = ./vim-snippets/snippets/rust.snippets;
+          include = [ "rust" ];
+        }
+        {
+          paths = ./vim-snippets/snippets/php.snippets;
+          include = [ "php" ];
+        }
+        {
+          paths = ./vim-snippets/snippets/lua.snippets;
+          include = [ "lua" ];
+        }
+        {
+          paths = ./vim-snippets/snippets/c.snippets;
+          include = [ "c" ];
+        }
+        {
+          paths = ./vim-snippets/snippets/css.snippets;
+          include = [ "css" ];
+        }
+        {
+          paths = ./vim-snippets/snippets/javascript/javascript.snippets;
+          include = [ "javascript" ];
+        }
+        {
+          paths = ./vim-snippets/snippets/javascript/javascript-react.snippets;
+          include = [ "javascript-react" ];
+        }
+        {
+          paths = ./vim-snippets/UltiSnips/javascript-node.snippets;
+          include = [ "javascript-node" ];
+        }
+        {
+          paths = ./vim-snippets/snippets/typescript.snippets;
+          include = [ "typescript" ];
+        }
+        {
+          paths = ./vim-snippets/snippets/typescriptreact.snippets;
+          include = [ "typescript-react" ];
+        }
+        {
+          paths = ./vim-snippets/snippets/sh.snippets;
+          include = [ "sh" ];
+        }
+        {
+          paths = ./vim-snippets/snippets/bash.snippets;
+          include = [ "bash" ];
+        }
+        {
+          paths = ./vim-snippets/snippets/zsh.snippets;
+          include = [ "zsh" ];
+        }
+      ];
     };
 
     # Easily toggle comments
@@ -331,6 +429,29 @@
         clangd.enable = true; # C/C++
         csharp-ls.enable = true; # C#
         yamlls.enable = true; # YAML
+        ltex = {
+          enable = true;
+          settings = {
+            enabled = [ "astro" "html" "latex" "markdown" "text" "tex" "gitcommit" ];
+            completionEnabled = true;
+            language = "en-US de-DE nl";
+            # dictionary = {
+            #   "nl-NL" = [
+            #     ":/home/liv/.local/share/nvim/ltex/nl-NL.txt"
+            #   ];
+            #   "en-US" = [
+            #     ":/home/liv/.local/share/nvim/ltex/en-US.txt"
+            #   ];
+            #   "de-DE" = [
+            #     ":/home/liv/.local/share/nvim/ltex/de-DE.txt"
+            #   ];
+            # };
+          };
+        };
+        gopls = { # Golang
+          enable = true;
+          autostart = true;
+        };
 
         lua-ls = { # Lua
           enable = true;
@@ -346,11 +467,47 @@
       };
     };
 
+    wtf = {
+      enable = true;
+      context = true;
+      popupType = "popup";
+      openaiApiKey = "boop"; # TODO: add API key
+      openaiModelId = "gpt-3.5-turbo";
+      searchEngine = "duck_duck_go"; # | "google" | "stack_overflow" | "github" | "phind" | "perplexity";
+      # hooks.requestFinished = ""; # TODO: add notification here 
+    };
+
     # Dashboard
     alpha = {
       enable = true;
       theme = "dashboard";
       iconsEnabled = true;
+    };
+
+    # Even more snippets
+    nvim-snippets = {
+      enable = false;
+      settings = {
+        create_autocmd = true;
+        create_cmp_source = true;
+        extended_filetypes = {
+          typescript = [
+            "javascript"
+          ];
+        };
+        friendly_snippets = true;
+        global_snippets = [
+          "all"
+        ];
+        ignored_filetypes = [
+        #  "lua"
+        ];
+        search_paths = [
+          {
+            __raw = "vim.fn.stdpath('config') .. '/snippets'";
+          }
+        ];
+      };
     };
 
     cmp-emoji = {
@@ -538,7 +695,12 @@
     };
 
   };
+
+  extraConfigVim = ''
+  '';
+
   extraConfigLua = ''
+
     require("telescope").load_extension("lazygit")
 
     luasnip = require("luasnip")
@@ -651,9 +813,7 @@
       vim-be-good
       headlines-nvim # Should load this in at the opening of filetypes that require this, namely Markdown.
       nvim-web-devicons # Should load this in at Telescope/Neotree actions.
-      friendly-snippets # Should load this in at LuaSnip's initialisation, no clue how tho yet...
       glow-nvim # Glow inside of Neovim
-      ultisnips
       clipboard-image-nvim
     ]
     ++ [
