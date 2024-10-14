@@ -204,7 +204,7 @@
     # Code snippets
     luasnip = {
       enable = true;
-      extraConfig = {
+      settings = {
         enable_autosnippets = true;
         store_selection_keys = "<Tab>";
       };
@@ -396,7 +396,7 @@
     # Todo comments
     todo-comments = {
       enable = true;
-      colors = {
+      settings.colors = {
         error = ["DiagnosticError" "ErrorMsg" "#DC2626"];
         warning = ["DiagnosticWarn" "WarningMsg" "#FBBF24"];
         info = ["DiagnosticInfo" "#2563EB"];
@@ -454,26 +454,28 @@
 
     hardtime = {
       enable = false;
-      enabled = false;
-      disableMouse = true;
-      disabledFiletypes = [ "Oil" ];
-      hint = true;
-      maxCount = 40;
-      maxTime = 1000;
-      restrictionMode = "hint";
-      restrictedKeys = {
-        "h" = [ "n" "x" ];
-        "j" = [ "n" "x" ];
-        "k" = [ "n" "x" ];
-        "l" = [ "n" "x" ];
-        "-" = [ "n" "x" ];
-        "+" = [ "n" "x" ];
-        "gj" = [ "n" "x" ];
-        "gk" = [ "n" "x" ];
-        "<CR>" = [ "n" "x" ];
-        "<C-M>" = [ "n" "x" ];
-        "<C-N>" = [ "n" "x" ];
-        "<C-P>" = [ "n" "x" ];
+      settings = {
+        disableMouse = true;
+        enabled = false;
+        disabledFiletypes = [ "Oil" ];
+        restrictionMode = "hint";
+        hint = true;
+        maxCount = 40;
+        maxTime = 1000;
+        restrictedKeys = {
+          "h" = [ "n" "x" ];
+          "j" = [ "n" "x" ];
+          "k" = [ "n" "x" ];
+          "l" = [ "n" "x" ];
+          "-" = [ "n" "x" ];
+          "+" = [ "n" "x" ];
+          "gj" = [ "n" "x" ];
+          "gk" = [ "n" "x" ];
+          "<CR>" = [ "n" "x" ];
+          "<C-M>" = [ "n" "x" ];
+          "<C-N>" = [ "n" "x" ];
+          "<C-P>" = [ "n" "x" ];
+        };
       };
     };
 
@@ -487,7 +489,8 @@
       enable = true;
       servers = {
         # Average webdev LSPs
-        tsserver.enable = true; # TS/JS
+        # ts-ls.enable = true; # TS/JS
+        ts_ls.enable = true; # TS/JS
         cssls.enable = true; # CSS
         tailwindcss.enable = true; # TailwindCSS
         html.enable = true; # HTML
@@ -497,11 +500,11 @@
         vuels.enable = false; # Vue
         pyright.enable = true; # Python
         marksman.enable = true; # Markdown
-        nil-ls.enable = true; # Nix
+        nil_ls.enable = true; # Nix
         dockerls.enable = true; # Docker
         bashls.enable = true; # Bash
         clangd.enable = true; # C/C++
-        csharp-ls.enable = true; # C#
+        csharp_ls.enable = true; # C#
         yamlls.enable = true; # YAML
         ltex = {
           enable = true;
@@ -527,13 +530,13 @@
           autostart = true;
         };
 
-        lua-ls = { # Lua
+        lua_ls = { # Lua
           enable = true;
           settings.telemetry.enable = false;
         };
 
         # Rust
-        rust-analyzer = {
+        rust_analyzer = {
           enable = true;
           installRustc = true;
           installCargo = true;
@@ -555,7 +558,7 @@
     alpha = {
       enable = true;
       theme = "dashboard";
-      iconsEnabled = true;
+      # iconsEnabled = true; # Deprecated
     };
 
     # Even more snippets
