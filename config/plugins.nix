@@ -51,6 +51,13 @@
       enable = true;
     };
 
+    # Icons 
+    web-devicons.enable = true;
+
+    sleuth = {
+      enable = true;
+    };
+
     # Auto-tagging
     ts-autotag = {
       enable = true;
@@ -290,7 +297,7 @@
     };
 
     which-key = {
-      enable = true;
+      enable = false;
       registrations = {
         "<leader>fg" = "Find Git files with telescope";
         "<leader>fw" = "Find text with telescope";
@@ -302,6 +309,48 @@
     markdown-preview = {
       enable = true;
       settings.theme = "dark";
+    };
+
+    render-markdown = {
+      enable = true;
+      settings = {
+        enabled = true; # This lets you set whether the plugin should render documents from the start or not. Useful if you want to use a command like RenderMarkdown enable to start rendering documents rather than having it on by default.
+        bullet = {
+          icons = [
+            "•"
+          ];
+          right_pad = 1;
+        };
+        code = {
+          above = " ";
+          below = " ";
+          border = "thick";
+          language_pad = 2;
+          left_pad = 2;
+          position = "right";
+          right_pad = 2;
+          sign = false;
+          width = "block";
+        };
+        heading = {
+          border = true;
+          icons = [
+            "1 "
+            "2 "
+            "3 "
+            "4 "
+            "5 "
+            "6 "
+          ];
+          position = "inline";
+          sign = false;
+          width = "full";
+        };
+        render_modes = true;
+        signs = {
+          enabled = false;
+        };
+      };
     };
 
     # Prettier fancier command window
@@ -700,8 +749,17 @@
   extraConfigVim = ''
   '';
 
-  extraConfigLua = ''
+  extraConfigLuaPre = ''
+    if vim.g.have_nerd_font then
+      require('nvim-web-devicons').setup {}
+    end
+  '';
 
+  extraConfigLuaPost = ''
+    -- vim: ts=2 sts=2 sw=2 et
+  '';
+
+  extraConfigLua = ''
     require("telescope").load_extension("lazygit")
 
     luasnip = require("luasnip")
@@ -766,42 +824,44 @@
   -- }
        })  '';
 
-  colorschemes.catppuccin = {
-    enable = true;
-    settings = {
-      no_bold = false;
-      no_italic = false;
-      no_underline = false;
-      transparent_background = true;
-      integrations = {
-        cmp = true;
-        noice = true;
-        notify = true;
-        neotree = true;
-        harpoon = true;
-        gitsigns = true;
-        which_key = true;
-        illuminate.enabled = true;
-        treesitter = true;
-        treesitter_context = true;
-        telescope.enabled = true;
-        indent_blankline.enabled = true;
-        mini.enabled = true;
-        native_lsp = {
-          enabled = true;
-          inlay_hints = {
-            background = true;
-          };
-          underlines = {
-            errors = ["underline"];
-            hints = ["underline"];
-            information = ["underline"];
-            warnings = ["underline"];
-          };
-        };
-      };
-    };
-  };
+  colorschemes.oxocarbon.enable = true;
+
+  # colorschemes.catppuccin = {
+  #   enable = true;
+  #   settings = {
+  #     no_bold = false;
+  #     no_italic = false;
+  #     no_underline = false;
+  #     transparent_background = true;
+  #     integrations = {
+  #       cmp = true;
+  #       noice = true;
+  #       notify = true;
+  #       neotree = true;
+  #       harpoon = true;
+  #       gitsigns = true;
+  #       which_key = true;
+  #       illuminate.enabled = true;
+  #       treesitter = true;
+  #       treesitter_context = true;
+  #       telescope.enabled = true;
+  #       indent_blankline.enabled = true;
+  #       mini.enabled = true;
+  #       native_lsp = {
+  #         enabled = true;
+  #         inlay_hints = {
+  #           background = true;
+  #         };
+  #         underlines = {
+  #           errors = ["underline"];
+  #           hints = ["underline"];
+  #           information = ["underline"];
+  #           warnings = ["underline"];
+  #         };
+  #       };
+  #     };
+  #   };
+  # };
 
   # extraPlugins = with pkgs.vimPlugins; [
   #   vim-be-good
@@ -813,7 +873,6 @@
     [
       vim-be-good
       headlines-nvim # Should load this in at the opening of filetypes that require this, namely Markdown.
-      nvim-web-devicons # Should load this in at Telescope/Neotree actions.
       glow-nvim # Glow inside of Neovim
       clipboard-image-nvim
     ]
@@ -828,17 +887,6 @@
         hash = "sha256-w6yn8aNcJMLRbzaRuj3gj4x2J/20wUROLM6j39wpZek=";
       };
     })
-      # (pkgs.vimUtils.buildVimPlugin {
-      #   pname = "accelerated-jk";
-      #   src = pkgs.fetchFromGitHub {
-      #     owner = "rainbowhxch";
-      #     repo = "accelerated-jk.nvim";
-      #     rev = "8fb5dad4ccc1811766cebf16b544038aeeb7806f";
-      #     sha256 = "";
-      #   };
-      #   version = "2023-03-01";
-      # })
-
       # Just copy this block for a new plugin
       # (pkgs.vimUtils.buildVimPlugin {
       #   pname = "";
