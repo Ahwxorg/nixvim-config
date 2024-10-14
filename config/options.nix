@@ -7,9 +7,20 @@
     # Always show the signcolumn, otherwise text would be shifted when displaying error icons
     signcolumn = "yes";
 
+    # Enable mouse
+    mouse = "a";
+
     # Search
     ignorecase = true;
     smartcase = true;
+  
+    # Configure how new splits should be opened
+    splitright = true;
+    splitbelow = true;
+
+    list = true;
+    # NOTE: .__raw here means that this field is raw lua code
+    listchars.__raw = "{ tab = '» ', trail = '·', nbsp = '␣' }";
 
     # Tab defaults (might get overwritten by an LSP server)
     tabstop = 4;
@@ -19,9 +30,19 @@
     smarttab = true;
 
     # System clipboard support, needs xclip/wl-clipboard
-    clipboard = "unnamedplus";
+    clipboard = {
+      providers = {
+        wl-copy.enable = true; # Wayland 
+        xsel.enable = true; # For X11
+      };
+      register = "unnamedplus";
+    };
 
-    # Highlight the current line
+    # Save undo history
+    undofile = true;
+
+
+    # Highlight the current line for cursor
     cursorline = true;
 
     # Show line and column when searching
