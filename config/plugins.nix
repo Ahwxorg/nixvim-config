@@ -566,6 +566,9 @@
     cmp = {
       enable = true;
       settings = {
+        completion = {
+          completeopt = "menu,menuone,noinsert";
+        };
         autoEnableSources = true;
         experimental = { ghost_text = true; };
         performance = {
@@ -573,7 +576,13 @@
           fetchingTimeout = 200;
           maxViewEntries = 30;
         };
-        snippet = { expand = "luasnip"; };
+        snippet = { 
+          expand = ''
+            function(args)
+              require('luasnip').lsp_expand(args.body)
+            end
+          '';
+        };
         formatting = { fields = [ "kind" "abbr" "menu" ]; };
         sources = [
           { name = "nvim_lsp"; }
@@ -607,9 +616,22 @@
           "<C-b>" = "cmp.mapping.scroll_docs(-4)";
           "<C-f>" = "cmp.mapping.scroll_docs(4)";
           "<C-Space>" = "cmp.mapping.complete()";
-          "<Return>" = "cmp.mapping.confirm({ select = true })";
           "<CR>" = "cmp.mapping.confirm({ select = true })";
           "<S-CR>" = "cmp.mapping.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = true })";
+          "<C-l>" = ''
+            cmp.mapping(function()
+              if luasnip.expand_or_locally_jumpable() then
+                luasnip.expand_or_jump()
+              end
+            end, { 'i', 's' })
+          '';
+          "<C-h>" = ''
+            cmp.mapping(function()
+              if luasnip.locally_jumpable(-1) then
+                luasnip.jump(-1)
+              end
+            end, { 'i', 's' })
+          '';
         };
       };
     };
