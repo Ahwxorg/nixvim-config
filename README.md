@@ -15,3 +15,31 @@ To test your configuration simply run the following command
 ```sh
 nix run .
 ```
+
+**Add to flake:**
+
+I have the following in flake.nix
+
+```nix
+{
+....
+inputs = {
+  nixvim.url = "github:ahwxorg/nixvim-config"
+}
+....
+};
+```
+
+And then I have a `packages.nix` file that contains:
+
+```nix
+{ inputs, pkgs, ... }: 
+{
+  home.packages = with pkgs; [
+    ...
+    inputs.nixvim.packages.${pkgs.system}.default
+  ];
+}
+```
+
+Or you can always [take a look yourself](https://github.com/Ahwxorg/nixos-config)
