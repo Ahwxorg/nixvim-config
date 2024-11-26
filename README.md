@@ -16,6 +16,12 @@ To test your configuration simply run the following command
 nix run .
 ```
 
+To test the config without first cloning the repo simply run the following command
+
+```sh
+nix run github:Ahwxorg/nixvim-config
+```
+
 **Add to flake:**
 
 I have the following in flake.nix
