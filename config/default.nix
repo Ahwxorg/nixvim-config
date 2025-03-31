@@ -19,6 +19,7 @@
     ./modules/plugins/lualine.nix
     ./modules/plugins/lz-n.nix
     ./modules/plugins/markview.nix
+    ./modules/plugins/neoscroll.nix
     ./modules/plugins/noice.nix
     ./modules/plugins/none-ls.nix
     ./modules/plugins/schemastore.nix
