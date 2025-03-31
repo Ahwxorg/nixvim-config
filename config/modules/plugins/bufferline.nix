@@ -1,0 +1,3 @@
+{
+  plugins.bufferline.enable = true;
+}
