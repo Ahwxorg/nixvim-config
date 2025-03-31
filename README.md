@@ -49,3 +49,7 @@ And then I have a `packages.nix` file that contains:
 ```
 
 Or you can always [take a look yourself](https://github.com/Ahwxorg/nixos-config)
+
+## Credits
+
+Huge amount of credits to [elythh](https://github.com/elythh/nixvim)! I've ~~taken~~ shamelessly stolen quite a lot of their configuration.
