@@ -1,5 +1,5 @@
 {
-  description = "Ahwx' Neovim configuration, declaratively written using Nix";
+  description = "livs neovim configuration, declaratively written using nix";
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
@@ -16,8 +16,6 @@
       systems = [
         "x86_64-linux"
         "aarch64-linux"
-        "x86_64-darwin"
-        "aarch64-darwin"
       ];
 
       perSystem = {
