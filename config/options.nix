@@ -4,6 +4,12 @@
     number = true;
     relativenumber = true;
 
+    # Enable more colors (24-bit)
+    termguicolors = true;
+
+    # Have a better completion experience
+    completeopt = [ "menuone" "noselect" "noinsert" ];
+
     # Always show the signcolumn, otherwise text would be shifted when displaying error icons
     signcolumn = "yes";
 
@@ -22,13 +28,6 @@
     # NOTE: .__raw here means that this field is raw lua code
     listchars.__raw = "{ tab = '» ', trail = '·', nbsp = '␣' }";
 
-    # Tab defaults (might get overwritten by an LSP server)
-    tabstop = 4;
-    shiftwidth = 4;
-    softtabstop = 0;
-    expandtab = true;
-    smarttab = true;
-
     # System clipboard support, needs xclip/wl-clipboard
     clipboard = {
       providers = {
@@ -38,9 +37,15 @@
       register = "unnamedplus";
     };
 
+    # Set encoding
+    encoding = "utf-8";
+    fileencoding = "utf-8";
+
     # Save undo history
     undofile = true;
-
+    swapfile = true;
+    backup = false;
+    autoread = true;
 
     # Highlight the current line for cursor
     cursorline = true;
@@ -53,6 +58,17 @@
 
     # Start scrolling when the cursor is X lines away from the top/bottom
     scrolloff = 5;
+  };
+
+  diagnostics = {
+    update_in_insert = true;
+    severity_sort = true;
+    float = {
+      border = "rounded";
+    };
+    jump = {
+      severity.__raw = "vim.diagnostic.severity.WARN";
+    };
   };
 
   userCommands = {
