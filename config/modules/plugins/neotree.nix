@@ -1,5 +1,5 @@
 {
-  neo-tree = {
+  plugins.neo-tree = {
     enable = true;
     enableDiagnostics = true;
     enableGitStatus = true;
