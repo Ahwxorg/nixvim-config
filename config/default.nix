@@ -23,6 +23,7 @@
     ./modules/plugins/neotree.nix
     ./modules/plugins/noice.nix
     ./modules/plugins/none-ls.nix
+    ./modules/plugins/oil.nix
     ./modules/plugins/schemastore.nix
     ./modules/plugins/telescope.nix
     ./modules/plugins/treesitter.nix
