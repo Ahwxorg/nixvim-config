@@ -12,8 +12,10 @@
     ./modules/plugins/comment.nix
     ./modules/plugins/comment-box.nix
     ./modules/plugins/conform.nix
+    ./modules/plugins/diagram.nix
     ./modules/plugins/gitsigns.nix
     ./modules/plugins/icons.nix
+    ./modules/plugins/image.nix
     ./modules/plugins/lint.nix
     ./modules/plugins/lsp.nix
     ./modules/plugins/lualine.nix
