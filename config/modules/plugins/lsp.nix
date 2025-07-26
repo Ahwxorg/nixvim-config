@@ -1,4 +1,5 @@
-{ lib, pkgs, ... }: {
+{ lib, pkgs, ... }:
+{
   plugins = {
     lsp-format = {
       enable = true;
@@ -55,22 +56,45 @@
         #     # };
         #   };
         # };
-        gopls = { # Golang
+
+        # Golang
+        gopls = {
           enable = true;
           autostart = true;
         };
-       
-        lua_ls = { # Lua
+
+        # Lua
+        lua_ls = {
           enable = true;
           settings.telemetry.enable = false;
         };
-       
+
         # Rust
         rust_analyzer = {
           enable = true;
           installRustc = true;
           installCargo = true;
         };
+
+        # Spellcheck
+        harper_ls = {
+          enable = true;
+          settings.settings = {
+            "harper-ls" = {
+              linters = {
+                boring_words = true;
+                linking_verbs = true;
+                # Rarely useful with coding
+                sentence_capitalization = false;
+                spell_check = false;
+              };
+              codeActions = {
+                forceStable = true;
+              };
+            };
+          };
+        };
+
         ts_ls.enable = true; # TS/JS
         cssls.enable = true; # CSS
         tailwindcss.enable = true; # TailwindCSS
@@ -80,7 +104,7 @@
         svelte.enable = false; # Svelte
         vuels.enable = false; # Vue
         pyright.enable = true; # Python
-        nil_ls.enable = true; # Nix
+        # nil_ls.enable = true; # Nix
         dockerls.enable = true; # Docker
         bashls.enable = true; # Bash
         clangd.enable = true; # C/C++
