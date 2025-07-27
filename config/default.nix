@@ -2,8 +2,6 @@
   # Import all your configuration modules here
   imports = [
     # ./plugins.nix
-    ./options.nix
-    ./keymappings.nix
     ./modules/plugins/autopairs.nix
     ./modules/plugins/blink.nix
     ./modules/plugins/bufferline.nix
@@ -20,6 +18,7 @@
     ./modules/plugins/lsp.nix
     ./modules/plugins/lualine.nix
     ./modules/plugins/lz-n.nix
+    ./modules/plugins/markdown-preview.nix
     ./modules/plugins/markview.nix
     ./modules/plugins/neoscroll.nix
     ./modules/plugins/neotree.nix
@@ -31,5 +30,7 @@
     ./modules/plugins/treesitter.nix
     ./modules/plugins/trouble.nix
     ./modules/plugins/trunk.nix
+    ./options.nix
+    ./keymappings.nix
   ];
 }
