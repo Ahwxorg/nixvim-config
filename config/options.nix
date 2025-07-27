@@ -42,7 +42,7 @@
     # System clipboard support, needs xclip/wl-clipboard
     clipboard = {
       providers.wl-copy.enable = true; # Use wl-copy for wayland and xsel for Xorg
-      register = "unnamedplus";
+      register = "wl-copy";
     };
 
     # Set encoding
@@ -98,6 +98,10 @@
       callback = {
         __raw = "function() if vim.fn.argv(0) == '' then require('telescope.builtin').find_files() end end";
       };
+    }
+    {
+      event = [ "VimEnter" ];
+      command = "set relativenumber";
     }
   ];
   #autoCmd = [
