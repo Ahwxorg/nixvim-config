@@ -12,6 +12,7 @@
     ./modules/plugins/conform.nix
     ./modules/plugins/diagram.nix
     ./modules/plugins/gitsigns.nix
+    ./modules/plugins/himalaya.nix
     ./modules/plugins/icons.nix
     ./modules/plugins/image.nix
     ./modules/plugins/lint.nix
@@ -30,6 +31,8 @@
     ./modules/plugins/treesitter.nix
     ./modules/plugins/trouble.nix
     ./modules/plugins/trunk.nix
+
+    ./modules/plugins/others.nix
     ./options.nix
     ./keymappings.nix
   ];
