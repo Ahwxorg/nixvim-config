@@ -1,4 +1,5 @@
-{ pkgs, ... }: {
+{ pkgs, ... }:
+{
   plugins = {
     treesitter = {
       enable = true;
@@ -17,7 +18,7 @@
     };
 
     treesitter-context = {
-      enable = false;
+      enable = true;
     };
 
     treesitter-textobjects = {
@@ -32,4 +33,3 @@
     local parser_config = require("nvim-treesitter.parsers").get_parser_configs()
   '';
 }
-
