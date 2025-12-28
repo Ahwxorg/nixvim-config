@@ -5,6 +5,12 @@
     glow-nvim # Glow inside of Neovim
     clipboard-image-nvim # This might work with emails, not too sure?
     nvim-biscuits
+    vim-just
+    editorconfig-nvim
+    dressing-nvim
+    lsp_signature-nvim
+    crates-nvim
+    indent-blankline-nvim
     # ]
     #++ [
     #  (pkgs.vimUtils.buildVimPlugin {
@@ -28,5 +34,10 @@
     #   };
     # })
   ];
-  extraPackages = with pkgs; [ himalaya ];
+  extraPackages = with pkgs; [
+    himalaya
+    ripgrep
+    codespell
+    shfmt
+  ];
 }
