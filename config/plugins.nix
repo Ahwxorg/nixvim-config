@@ -1,9 +1,18 @@
-{pkgs, ...}: {
+{ pkgs, ... }:
+{
   plugins = {
     # Navigate Tmux with the same keybindings as Neovim
     tmux-navigator = {
       enable = true;
       keymaps = [
+        # insert newline without going out of normal mode
+        {
+          mode = "n";
+          key = "<enter>";
+          action = "o<esc>";
+        }
+
+        # move focussed windows
         {
           action = "left";
           key = "<C-w>h";
@@ -29,6 +38,10 @@
 
     # Buffer bar
     bufferline = {
+      enable = false;
+    };
+
+    barbar-nvim = {
       enable = true;
     };
 
@@ -51,7 +64,7 @@
       enable = true;
     };
 
-    # Icons 
+    # Icons
     web-devicons.enable = true;
 
     sleuth = {
@@ -71,7 +84,7 @@
     none-ls = {
       enable = true;
       settings = {
-        cmd = ["bash -c nvim"];
+        cmd = [ "bash -c nvim" ];
         debug = true;
       };
       sources = {
@@ -154,7 +167,10 @@
         dap-ui = {
           enable = true;
           floating.mappings = {
-            close = ["<ESC>" "q"];
+            close = [
+              "<ESC>"
+              "q"
+            ];
           };
         };
         dap-virtual-text = {
@@ -178,16 +194,16 @@
     lint = {
       enable = true;
       lintersByFt = {
-        text = ["vale"];
-        json = ["jsonlint"];
-        markdown = ["vale"];
-        rst = ["vale"];
-        ruby = ["ruby"];
-        janet = ["janet"];
-        inko = ["inko"];
-        clojure = ["clj-kondo"];
-        dockerfile = ["hadolint"];
-        terraform = ["tflint"];
+        text = [ "vale" ];
+        json = [ "jsonlint" ];
+        markdown = [ "vale" ];
+        rst = [ "vale" ];
+        ruby = [ "ruby" ];
+        janet = [ "janet" ];
+        inko = [ "inko" ];
+        clojure = [ "clj-kondo" ];
+        dockerfile = [ "hadolint" ];
+        terraform = [ "tflint" ];
       };
     };
 
@@ -196,7 +212,7 @@
       enable = true;
     };
 
-    # Friendly Snippets 
+    # Friendly Snippets
     friendly-snippets = {
       enable = true;
     };
@@ -296,6 +312,7 @@
       settings.current_line_blame = true;
     };
 
+    # Display possible keybindings after <leader> as you type
     which-key = {
       enable = false;
       registrations = {
@@ -317,7 +334,7 @@
 
     image = {
       enable = true;
-      backend = "kitty";
+      backend = "sixel";
       hijackFilePatterns = [
         "*.png"
         "*.jpg"
@@ -359,12 +376,32 @@
     todo-comments = {
       enable = true;
       settings.colors = {
-        error = ["DiagnosticError" "ErrorMsg" "#DC2626"];
-        warning = ["DiagnosticWarn" "WarningMsg" "#FBBF24"];
-        info = ["DiagnosticInfo" "#2563EB"];
-        hint = ["DiagnosticHint" "#10B981"];
-        default = ["Identifier" "#7C3AED"];
-        test = ["Identifier" "#FF00FF"];
+        error = [
+          "DiagnosticError"
+          "ErrorMsg"
+          "#DC2626"
+        ];
+        warning = [
+          "DiagnosticWarn"
+          "WarningMsg"
+          "#FBBF24"
+        ];
+        info = [
+          "DiagnosticInfo"
+          "#2563EB"
+        ];
+        hint = [
+          "DiagnosticHint"
+          "#10B981"
+        ];
+        default = [
+          "Identifier"
+          "#7C3AED"
+        ];
+        test = [
+          "Identifier"
+          "#FF00FF"
+        ];
       };
     };
 
@@ -425,18 +462,54 @@
         maxCount = 40;
         maxTime = 1000;
         restrictedKeys = {
-          "h" = [ "n" "x" ];
-          "j" = [ "n" "x" ];
-          "k" = [ "n" "x" ];
-          "l" = [ "n" "x" ];
-          "-" = [ "n" "x" ];
-          "+" = [ "n" "x" ];
-          "gj" = [ "n" "x" ];
-          "gk" = [ "n" "x" ];
-          "<CR>" = [ "n" "x" ];
-          "<C-M>" = [ "n" "x" ];
-          "<C-N>" = [ "n" "x" ];
-          "<C-P>" = [ "n" "x" ];
+          "h" = [
+            "n"
+            "x"
+          ];
+          "j" = [
+            "n"
+            "x"
+          ];
+          "k" = [
+            "n"
+            "x"
+          ];
+          "l" = [
+            "n"
+            "x"
+          ];
+          "-" = [
+            "n"
+            "x"
+          ];
+          "+" = [
+            "n"
+            "x"
+          ];
+          "gj" = [
+            "n"
+            "x"
+          ];
+          "gk" = [
+            "n"
+            "x"
+          ];
+          "<CR>" = [
+            "n"
+            "x"
+          ];
+          "<C-M>" = [
+            "n"
+            "x"
+          ];
+          "<C-N>" = [
+            "n"
+            "x"
+          ];
+          "<C-P>" = [
+            "n"
+            "x"
+          ];
         };
       };
     };
@@ -471,7 +544,15 @@
         ltex = {
           enable = true;
           settings = {
-            enabled = [ "astro" "html" "latex" "markdown" "text" "tex" "gitcommit" ];
+            enabled = [
+              "astro"
+              "html"
+              "latex"
+              "markdown"
+              "text"
+              "tex"
+              "gitcommit"
+            ];
             completionEnabled = true;
             language = "en-US de-DE nl";
             # dictionary = {
@@ -487,12 +568,14 @@
             # };
           };
         };
-        gopls = { # Golang
+        gopls = {
+          # Golang
           enable = true;
           autostart = true;
         };
 
-        lua_ls = { # Lua
+        lua_ls = {
+          # Lua
           enable = true;
           settings.telemetry.enable = false;
         };
@@ -513,7 +596,7 @@
       openaiApiKey = "boop"; # TODO: add API key
       openaiModelId = "gpt-3.5-turbo";
       searchEngine = "duck_duck_go"; # | "google" | "stack_overflow" | "github" | "phind" | "perplexity";
-      # hooks.requestFinished = ""; # TODO: add notification here 
+      # hooks.requestFinished = ""; # TODO: add notification here
     };
 
     # Dashboard
@@ -539,7 +622,7 @@
           "all"
         ];
         ignored_filetypes = [
-        #  "lua"
+          #  "lua"
         ];
         search_paths = [
           {
@@ -560,20 +643,28 @@
           completeopt = "menu,menuone,noinsert";
         };
         autoEnableSources = true;
-        experimental = { ghost_text = true; };
+        experimental = {
+          ghost_text = true;
+        };
         performance = {
           debounce = 60;
           fetchingTimeout = 200;
           maxViewEntries = 30;
         };
-        snippet = { 
+        snippet = {
           expand = ''
             function(args)
               require('luasnip').lsp_expand(args.body)
             end
           '';
         };
-        formatting = { fields = [ "kind" "abbr" "menu" ]; };
+        formatting = {
+          fields = [
+            "kind"
+            "abbr"
+            "menu"
+          ];
+        };
         sources = [
           { name = "nvim_lsp"; }
           { name = "emoji"; }
@@ -594,8 +685,12 @@
         ];
 
         window = {
-          completion = { border = "solid"; };
-          documentation = { border = "solid"; };
+          completion = {
+            border = "solid";
+          };
+          documentation = {
+            border = "solid";
+          };
         };
 
         mapping = {
@@ -639,7 +734,7 @@
     };
     cmp-cmdline = {
       enable = true; # autocomplete for cmdline
-    }; 
+    };
 
     lspkind = {
       enable = true;
@@ -758,8 +853,7 @@
 
   };
 
-  extraConfigVim = ''
-  '';
+  extraConfigVim = '''';
 
   extraConfigLuaPre = ''
     if vim.g.have_nerd_font then
@@ -772,69 +866,69 @@
   '';
 
   extraConfigLua = ''
-    require("telescope").load_extension("lazygit")
+      require("telescope").load_extension("lazygit")
 
-    luasnip = require("luasnip")
-    kind_icons = {
-      Text = "󰊄",
-      Method = "",
-      Function = "󰡱",
-      Constructor = "",
-      Field = "",
-      Variable = "󱀍",
-      Class = "",
-      Interface = "",
-      Module = "󰕳",
-      Property = "",
-      Unit = "",
-      Value = "",
-      Enum = "",
-      Keyword = "",
-      Snippet = "",
-      Color = "",
-      File = "",
-      Reference = "",
-      Folder = "",
-      EnumMember = "",
-      Constant = "",
-      Struct = "",
-      Event = "",
-      Operator = "",
-      TypeParameter = "",
-    } 
+      luasnip = require("luasnip")
+      kind_icons = {
+        Text = "󰊄",
+        Method = "",
+        Function = "󰡱",
+        Constructor = "",
+        Field = "",
+        Variable = "󱀍",
+        Class = "",
+        Interface = "",
+        Module = "󰕳",
+        Property = "",
+        Unit = "",
+        Value = "",
+        Enum = "",
+        Keyword = "",
+        Snippet = "",
+        Color = "",
+        File = "",
+        Reference = "",
+        Folder = "",
+        EnumMember = "",
+        Constant = "",
+        Struct = "",
+        Event = "",
+        Operator = "",
+        TypeParameter = "",
+      } 
 
-    local cmp = require'cmp'
+      local cmp = require'cmp'
 
-    -- Use buffer source for `/` (if you enabled `native_menu`, this won't work anymore).
-    cmp.setup.cmdline({'/', "?" }, {
-      sources = {
-        { name = 'buffer' }
-      }
-    })
+      -- Use buffer source for `/` (if you enabled `native_menu`, this won't work anymore).
+      cmp.setup.cmdline({'/', "?" }, {
+        sources = {
+          { name = 'buffer' }
+        }
+      })
 
-    -- Set configuration for specific filetype.
-     cmp.setup.filetype('gitcommit', {
-       sources = cmp.config.sources({
-         { name = 'cmp_git' }, -- You can specify the `cmp_git` source if you were installed it.
-       }, {
-         { name = 'buffer' },
+      -- Set configuration for specific filetype.
+       cmp.setup.filetype('gitcommit', {
+         sources = cmp.config.sources({
+           { name = 'cmp_git' }, -- You can specify the `cmp_git` source if you were installed it.
+         }, {
+           { name = 'buffer' },
+         })
        })
-     })
 
-     -- Use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore).
-     cmp.setup.cmdline(':', {
-       sources = cmp.config.sources({
-         { name = 'path' }
-       }, {
-         { name = 'cmdline' }
-       }),
-  --      formatting = {
-  --       format = function(_, vim_item)
-  --         vim_item.kind = cmdIcons[vim_item.kind] or "FOO"
-  --       return vim_item
-  --      end
-  -- }
-       })  '';
+       -- Use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore).
+       cmp.setup.cmdline(':', {
+         sources = cmp.config.sources({
+           { name = 'path' }
+         }, {
+           { name = 'cmdline' }
+         }),
+    --      formatting = {
+    --       format = function(_, vim_item)
+    --         vim_item.kind = cmdIcons[vim_item.kind] or "FOO"
+    --       return vim_item
+    --      end
+    -- }
+         })  '';
 
   colorschemes.oxocarbon.enable = true;
 
@@ -881,32 +975,31 @@
   #   # accelerated-jk
   # ];
 
-  extraPlugins = with pkgs.vimPlugins;
-    [
-      vim-be-good
-      glow-nvim # Glow inside of Neovim
-      clipboard-image-nvim
-    ];
-    #    ++ [
-    #      (pkgs.vimUtils.buildVimPlugin {
-    #      pname = "markview.nvim";
-    #      version = "0.0.1";
-    #      src = pkgs.fetchFromGitHub {
-    #        owner = "OXY2DEV";
-    #        repo = "markview.nvim";
-    #        rev = "a959d77ca7e9f05175e3ee4e582db40b338c9164";
-    #        hash = "sha256-w6yn8aNcJMLRbzaRuj3gj4x2J/20wUROLM6j39wpZek=";
-    #      };
-    #    })
-    #      # Just copy this block for a new plugin
-    #      # (pkgs.vimUtils.buildVimPlugin {
-    #      #   pname = "";
-    #      #   src = pkgs.fetchFromGitHub {
-    #      #     owner = "";
-    #      #     repo = "";
-    #      #     rev = "";
-    #      #     sha256 = "";
-    #      #   };
-    #      # })
-    #    ];
+  extraPlugins = with pkgs.vimPlugins; [
+    vim-be-good
+    glow-nvim # Glow inside of Neovim
+    clipboard-image-nvim
+  ];
+  #    ++ [
+  #      (pkgs.vimUtils.buildVimPlugin {
+  #      pname = "markview.nvim";
+  #      version = "0.0.1";
+  #      src = pkgs.fetchFromGitHub {
+  #        owner = "OXY2DEV";
+  #        repo = "markview.nvim";
+  #        rev = "a959d77ca7e9f05175e3ee4e582db40b338c9164";
+  #        hash = "sha256-w6yn8aNcJMLRbzaRuj3gj4x2J/20wUROLM6j39wpZek=";
+  #      };
+  #    })
+  #      # Just copy this block for a new plugin
+  #      # (pkgs.vimUtils.buildVimPlugin {
+  #      #   pname = "";
+  #      #   src = pkgs.fetchFromGitHub {
+  #      #     owner = "";
+  #      #     repo = "";
+  #      #     rev = "";
+  #      #     sha256 = "";
+  #      #   };
+  #      # })
+  #    ];
 }
