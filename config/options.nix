@@ -1,4 +1,4 @@
-{ self, ... }:
+{ self, pkgs, ... }:
 {
   globalOpts = {
     # Line numbers
@@ -34,15 +34,15 @@
     listchars.__raw = "{ tab = '» ', trail = '·', nbsp = '␣' }";
 
     expandtab = true;
-    # tabstop = 4;
+    tabstop = 4;
     shiftwidth = 2;
-    # softtabstop = 0;
-    # smarttab = true;
+    softtabstop = 0;
+    smarttab = true;
 
     # System clipboard support, needs xclip/wl-clipboard
     clipboard = {
       providers.wl-copy.enable = true; # Use wl-copy for wayland and xsel for Xorg
-      register = "wl-copy";
+      register = "unnamedplus";
     };
 
     # Set encoding
@@ -94,12 +94,25 @@
 
   autoCmd = [
     {
+      desc = "Change working directory to a git repository's root";
+      event = [ "VimEnter" ];
+      pattern = "*";
+      command = "luafile ${pkgs.writeText "cd-git-root.lua" ''
+        local gitRoot = vim.fn.system("${pkgs.git}/bin/git rev-parse --show-toplevel 2>/dev/null")
+        if (gitRoot) ~= nil nd gitRoot ~= "") then
+          vim.cmd("cd " .. gitRoot)
+        end
+      ''}";
+    }
+    {
+      desc = "Open Telescope if Vim is opened without arguments";
       event = [ "VimEnter" ];
       callback = {
         __raw = "function() if vim.fn.argv(0) == '' then require('telescope.builtin').find_files() end end";
       };
     }
     {
+      desc = "Enable relativenumber";
       event = [ "VimEnter" ];
       command = "set relativenumber";
     }
