@@ -1,6 +1,11 @@
-{ lib, config, ... }: {
+{ lib, config, ... }:
+{
   plugins.trouble = {
     enable = true;
+    settings = {
+      auto_close = true;
+      auto_refresh = true;
+    };
   };
   keymaps = lib.mkIf config.plugins.trouble.enable [
     {
@@ -29,4 +34,3 @@
     }
   ];
 }
-
