@@ -36,37 +36,6 @@
       ];
     };
 
-    # Buffer bar
-    bufferline = {
-      enable = false;
-    };
-
-    barbar-nvim = {
-      enable = true;
-    };
-
-    # Status bar
-    lualine = {
-      enable = true;
-    };
-
-    # Make `nvim .` look prettier
-    oil = {
-      enable = true;
-    };
-
-    neoscroll = {
-      enable = true;
-    };
-
-    # Includes all parsers for treesitter
-    treesitter = {
-      enable = true;
-    };
-
-    # Icons
-    web-devicons.enable = true;
-
     sleuth = {
       enable = true;
     };
@@ -189,6 +158,11 @@
         ];
       };
     };
+
+    cmp-dap.enable = true;
+    dap-virtual-text.enable = true;
+    dap-go.enable = true;
+    dap-ui.enable = true;
 
     # Linting
     lint = {
@@ -850,7 +824,81 @@
         };
       };
     };
-
+    typescript-tools = {
+      enable = true;
+      settings = {
+        seperate_diagnostic_server = true;
+        publish_diagnostic_on = "insert_leave";
+        tsserver_max_memory = "auto";
+        tsserver_locale = "en";
+        complete_function_calls = true;
+        include_completions_with_insert_text = true;
+        code_lens = "on";
+        disable_member_code_lens = false;
+        jsx_close_tag = {
+          enable = true;
+          filetypes = [
+            "javascriptreact"
+            "typescriptreact"
+          ];
+        };
+      };
+    };
+    snacks = {
+      enable = true;
+      settings = {
+        animate.enable = true;
+        bigfile.enable = true;
+        bufdelete.enable = false;
+        dashboard.enable = false;
+        debug.enable = false;
+        dim.enable = true;
+        explorer.enable = false;
+        gh.enable = false;
+        git.enable = false;
+        gitbrowse.enable = false;
+        image.enable = false;
+        indent.enable = true;
+        input.enable = false;
+        keymap.enable = false;
+        layout.enable = false;
+        lazygit.enable = false;
+        notifier.enable = false;
+        notify.enable = false;
+        picker.enable = true;
+        profiler.enable = false;
+        quickfile.enable = true;
+        rename.enable = true;
+        scope.enable = true;
+        scratch.enable = false;
+        scroll.enable = false;
+        statuscolumn.enable = true;
+        terminal.enable = true;
+        toggle.enable = false;
+        util.enable = true;
+        win.enable = false;
+        words.enable = true;
+        zen.enable = false;
+      };
+    };
+    userCommands = {
+      "Snacks" = {
+        command.__raw = ''function() require('snacks').picker.pickers() end'';
+        desc = "Snack pickers picker";
+      };
+      "GitBrowse" = {
+        command.__raw = ''function() require('snacks').gitbrowse() end'';
+        desc = "Open git repo in browser";
+      };
+      "Terminal" = {
+        command.__raw = ''function() require('snacks').terminal() end'';
+        desc = "Open Terminal";
+      };
+      "Rename" = {
+        command.__raw = ''function() require('snacks').rename.rename_file() end'';
+        desc = "Rename file";
+      };
+    };
   };
 
   extraConfigVim = '''';
