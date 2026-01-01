@@ -99,7 +99,7 @@
       pattern = "*";
       command = "luafile ${pkgs.writeText "cd-git-root.lua" ''
         local gitRoot = vim.fn.system("${pkgs.git}/bin/git rev-parse --show-toplevel 2>/dev/null")
-        if (gitRoot) ~= nil nd gitRoot ~= "") then
+        if (gitRoot) ~= nil and gitRoot ~= "") then
           vim.cmd("cd " .. gitRoot)
         end
       ''}";
