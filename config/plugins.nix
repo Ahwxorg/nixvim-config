@@ -513,7 +513,7 @@
         dockerls.enable = true; # Docker
         bashls.enable = true; # Bash
         clangd.enable = true; # C/C++
-        csharp_ls.enable = true; # C#
+        # csharp_ls.enable = true; # C#; not working on darwin
         yamlls.enable = true; # YAML
         ltex = {
           enable = true;
