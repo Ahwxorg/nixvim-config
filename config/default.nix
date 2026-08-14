@@ -7,6 +7,7 @@
     ./modules/plugins/bufferline.nix
     ./modules/plugins/cmp.nix
     ./modules/plugins/colorscheme.nix
+    ./modules/plugins/colorizer.nix
     ./modules/plugins/comment.nix
     ./modules/plugins/comment-box.nix
     ./modules/plugins/conform.nix
